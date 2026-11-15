@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ===== Bài đang phát ===== -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Chưa có bài – bấm “＋ Bài” hoặc “＋ Thư mục”"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/seekPos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:max="1000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp">
+
+            <TextView
+                android:id="@+id/tvPos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0:00" />
+
+            <TextView
+                android:id="@+id/tvDur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0:00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/btnPrev" style="@style/SmallBtn" android:text="⏮" />
+            <Button android:id="@+id/btnBack" style="@style/SmallBtn" android:text="−10s" />
+            <Button android:id="@+id/btnPlay" style="@style/SmallBtn" android:text="▶" android:textSize="22sp" />
+            <Button android:id="@+id/btnFwd" style="@style/SmallBtn" android:text="+10s" />
+            <Button android:id="@+id/btnNext" style="@style/SmallBtn" android:text="⏭" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/btnRepeat" style="@style/SmallBtn" android:text="Lặp: Tắt" />
+            <Button android:id="@+id/btnShuffle" style="@style/SmallBtn" android:text="Trộn: Tắt" />
+        </LinearLayout>
+
+        <!-- ===== Tốc độ ===== -->
+        <TextView style="@style/Section" android:text="TỐC ĐỘ" />
+
+        <TextView
+            android:id="@+id/tvSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="1.00x"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/btnSpeedMinus" style="@style/TinyBtn" android:text="−" />
+            <SeekBar
+                android:id="@+id/seekSpeed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="75" />
+            <Button android:id="@+id/btnSpeedPlus" style="@style/TinyBtn" android:text="+" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/presetRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+        <!-- ===== Cao độ ===== -->
+        <TextView style="@style/Section" android:text="CAO ĐỘ (TONE)" />
+
+        <TextView
+            android:id="@+id/tvPitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0 nửa cung"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/btnPitchMinus" style="@style/TinyBtn" android:text="♭" />
+            <SeekBar
+                android:id="@+id/seekPitch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="24" />
+            <Button android:id="@+id/btnPitchPlus" style="@style/TinyBtn" android:text="♯" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cbTape"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cao độ đổi theo tốc độ (kiểu băng cassette)" />
+
+        <Button
+            android:id="@+id/btnReset"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đặt lại tốc độ &amp; cao độ" />
+
+        <!-- ===== Lặp A-B ===== -->
+        <TextView style="@style/Section" android:text="LẶP ĐOẠN A-B" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/btnA" style="@style/SmallBtn" android:text="Đặt A" />
+            <Button android:id="@+id/btnB" style="@style/SmallBtn" android:text="Đặt B" />
+            <Button android:id="@+id/btnClearAB" style="@style/SmallBtn" android:text="Xóa" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Chưa đặt" />
+
+        <!-- ===== Hẹn giờ ===== -->
+        <TextView style="@style/Section" android:text="HẸN GIỜ TẮT" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSleep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⏰ Hẹn giờ" />
+
+            <TextView
+                android:id="@+id/tvSleep"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="Chưa hẹn giờ"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cbFade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Nhỏ dần âm lượng 20 giây cuối" />
+
+        <!-- ===== Danh sách ===== -->
+        <TextView style="@style/Section" android:text="DANH SÁCH PHÁT (giữ lâu để xóa bài)" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/btnAdd" style="@style/SmallBtn" android:text="＋ Bài" />
+            <Button android:id="@+id/btnAddFolder" style="@style/SmallBtn" android:text="＋ Thư mục" />
+            <Button android:id="@+id/btnClear" style="@style/SmallBtn" android:text="Xóa hết" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/playlistBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="32dp" />
+    </LinearLayout>
+</ScrollView>
